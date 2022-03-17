@@ -176,6 +176,9 @@ namespace WebAPI01.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Notes");
         }
     }
 }

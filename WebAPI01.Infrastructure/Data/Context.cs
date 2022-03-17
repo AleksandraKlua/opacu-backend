@@ -23,6 +23,8 @@ namespace WebAPI01.Infrastructure.Data
         
         public  DbSet<AudioFile> AudioFiles { get; set; }
 
+        public DbSet<Note> Notes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -67,6 +69,13 @@ namespace WebAPI01.Infrastructure.Data
                 .WithOne()
                 .HasForeignKey<AudioFile>(f => f.FileId)
                 .IsRequired();
+
+            modelBuilder.Entity<Note>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Note>()
+                .Property(f => f.CreatedAt)
+                .ValueGeneratedOnAdd();
         }
     }
 }
